@@ -1,0 +1,50 @@
+.pagination {
+  display: flex;
+  align-self: center;
+  gap: 10px;
+
+  margin-bottom: 20px;
+
+  &__page, &__control-button, &__dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 40px;
+    width: 40px;
+  }
+
+  &__page, &__control-button {
+    text-decoration: none;
+    color: black;
+
+    border: 1px solid black;
+    border-radius: 4px;
+
+    transition: 0.3s;
+
+    &.current, &:hover {
+      background-color: #16ACC9;
+      border-color: #E4E6ED;
+      color: #fff;
+    }
+  }
+
+  &__control-button {
+    text-decoration: none;
+
+    &.disabled {
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    &-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    &:hover {
+      fill: #fff;
+    }
+  }
+}

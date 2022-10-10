@@ -1,10 +1,9 @@
-/* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { Characters } from '../types/characters';
+import { Character } from '../types/character';
 import { getCharacters } from '../api';
 
 interface StateType {
-  characters: Characters[],
+  characters: Character[],
   status: string | null;
   errorCharacters: boolean;
 }
@@ -15,7 +14,7 @@ const initialState: StateType = {
   errorCharacters: false,
 };
 
-export const axiosCharacters = createAsyncThunk<Characters[], number>(
+export const axiosCharacters = createAsyncThunk<Character[], string>(
   'characters/axiosCharacters',
   getCharacters,
 );
@@ -23,8 +22,7 @@ export const axiosCharacters = createAsyncThunk<Characters[], number>(
 const CharactersSlice = createSlice({
   name: 'characters',
   initialState,
-  reducers: {
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(axiosCharacters.pending, (state) => {
@@ -37,6 +35,7 @@ const CharactersSlice = createSlice({
       })
       .addCase(axiosCharacters.rejected, (state) => {
         state.status = 'rejected';
+        state.errorCharacters = true;
       });
   },
 });

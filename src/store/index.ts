@@ -3,7 +3,7 @@ import CharactersSlice from './CharactersSlice';
 
 const store = configureStore({
   reducer: {
-    chareters: CharactersSlice,
+    characters: CharactersSlice,
   },
 });
 

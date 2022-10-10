@@ -1,0 +1,21 @@
+.character {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &__container {
+
+  }
+
+  &__image {
+    height: 200px;
+    width: 200px;
+
+    border-radius: 10px;
+  }
+
+  &__info-list {
+    list-style: none;
+  }
+}
